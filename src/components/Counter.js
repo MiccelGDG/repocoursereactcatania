@@ -11,7 +11,8 @@ class Counter extends React.Component
 
     add()
     {
-        Counter.setState({counter : this.state.counter + 1});
+        this.setState({counter : this.state.counter + 1},
+            ()=>{console.log(`Counter: ${this.state.counter}`)});
     }
 
     render()
@@ -19,7 +20,7 @@ class Counter extends React.Component
         return (
             <div>
                 <p>Counter: {this.state.counter}</p>
-                <button onClick={this.add}>Incrementa</button>
+                <button onClick={() => this.add()}>Incrementa</button>
             </div>
         );
     }
